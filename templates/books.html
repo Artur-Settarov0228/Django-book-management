@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kitoblar ro‘yxati</title>
+</head>
+<body>
+    <h1>Kitoblar ro‘yxati</h1>
+    <a href="{% url 'home' %}">← Bosh sahifaga qaytish</a>
+    <hr>
+
+    <ul>
+        {% for book in books %}
+        <li>
+            <strong>{{ book.title }}</strong> — {{ book.author }}<br>
+            Yil: {{ book.year }} | Sahifalar: {{ book.pages }} | Janr: {{ book.genre }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
