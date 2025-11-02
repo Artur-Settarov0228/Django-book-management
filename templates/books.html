@@ -10,11 +10,16 @@
 
     <ul>
         {% for book in books %}
-        <li>
-            <strong>{{ book.title }}</strong> — {{ book.author }}<br>
-            Yil: {{ book.year }} | Sahifalar: {{ book.pages }} | Janr: {{ book.genre }}
-        </li>
+            <li>
+                <strong>{{ book.title }}</strong><br>
+                Muallif: {{ book.author }}<br>
+                Yil: {{ book.year }}<br>
+                Sahifalar soni: {{ book.pages }}<br>
+                Janr: {{ book.genre }}
+                <hr>
+            </li>
         {% endfor %}
     </ul>
+
 </body>
 </html>
