@@ -1,16 +1,102 @@
-<html>
-  <head>
-    <title>Book Management - Home</title>
-  </head>
-  <body>
-    <h1>Bosh sahifa</h1>
-    <p>Bu yerda kitoblar bilan ishlash mumkin.</p>
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Book Management - Bosh sahifa</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        ul li {
+            margin: 12px 0;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            background-color: #3f51b5;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        a:hover {
+            background-color: #2e3b9f;
+            transform: scale(1.03);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📖 Kitoblar boshqaruv tizimi</h1>
+</header>
+
+<main>
+    <p>Bu sahifada siz kitoblar bilan ishlashingiz mumkin:</p>
 
     <ul>
-      <li><a href="{% url 'books:books' %}">📚 Kitoblar ro‘yxati</a></li>
-      <li><a href="{% url 'books:add_books' %}">➕ Kitob qo‘shish</a></li>
-      <li><a href="{% url 'books:update_books' %}">✏️ Kitob yangilash</a></li>
-      <li><a href="{% url 'books:delete_books' %}">❌ Kitob o‘chirish</a></li>
+        <li><a href="{% url 'books:books' %}">📚 Kitoblar ro‘yxati</a></li>
+        <li><a href="{% url 'books:add_books' %}">➕ Yangi kitob qo‘shish</a></li>
+        <li><a href="{% url 'books:update_books' %}">✏️ Kitob ma’lumotlarini yangilash</a></li>
+        <li><a href="{% url 'books:delete_books' %}">❌ Kitobni o‘chirish</a></li>
     </ul>
-  </body>
+</main>
+
+<footer>
+    © {{ now|date:"Y" }} Rayhon Books Library
+</footer>
+
+</body>
 </html>

@@ -1,31 +1,126 @@
-<html>
-  <head>
-    <title>Kitoblar ro‘yxati</title>
-  </head>
-  <body>
-    <h1>Kitoblar ro‘yxati</h1>
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Kitoblar ro‘yxati</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-    <a href="{% url 'books:home' %}">⬅️ Bosh sahifaga qaytish</a>
-    <br><br>
+        header {
+            background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+            color: white;
+            text-align: center;
+            padding: 1.2rem;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
 
-    <table border="1" cellpadding="5">
-      <tr>
-        <th>Nomi</th>
-        <th>Muallif</th>
-        <th>Yili</th>
-        <th>Sahifalar</th>
-        <th>Janr</th>
-      </tr>
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
 
-      {% for b in bookss %}
-      <tr>
-        <td>{{ b.title }}</td>
-        <td>{{ b.author }}</td>
-        <td>{{ b.year }}</td>
-        <td>{{ b.pages }}</td>
-        <td>{{ b.genre }}</td>
-      </tr>
-      {% endfor %}
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 10px;
+            padding: 20px 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        a.back {
+            text-decoration: none;
+            color: #3f51b5;
+            font-weight: 600;
+        }
+
+        a.back:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .empty {
+            text-align: center;
+            color: #777;
+            padding: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📚 Kitoblar ro‘yxati</h1>
+</header>
+
+<div class="container">
+    <a href="{% url 'books:home' %}" class="back">⬅️ Bosh sahifaga qaytish</a>
+
+    <table>
+        <tr>
+            <th>Nomi</th>
+            <th>Muallif</th>
+            <th>Yili</th>
+            <th>Sahifalar</th>
+            <th>Janr</th>
+        </tr>
+
+        {% for b in books %}
+        <tr>
+            <td>{{ b.title }}</td>
+            <td>{{ b.author }}</td>
+            <td>{{ b.year }}</td>
+            <td>{{ b.pages }}</td>
+            <td>{{ b.genre }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5" class="empty">Hozircha hech qanday kitob qo‘shilmagan 📖</td>
+        </tr>
+        {% endfor %}
     </table>
-  </body>
+</div>
+
+<footer>
+    © {{ now|date:"Y" }} Rayhon Books Library
+</footer>
+
+</body>
 </html>
