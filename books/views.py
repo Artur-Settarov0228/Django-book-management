@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 
 # Create your views here.
-bookss = [
+books = [
     {
         "title": "Alkimyogar",
         "author": "Paulo Coelho",
@@ -56,7 +56,7 @@ def home_view(request: HttpRequest) -> HttpResponse:
 
 def books_view(request: HttpRequest) -> HttpResponse:
     context = {
-        "bookss": bookss
+        "bookss": books
     }
     return render(request= request, template_name="books.html", context= context)
 
@@ -76,8 +76,8 @@ def add_books_view(request: HttpRequest) -> HttpResponse:
             "genre": genre
         }
 
-        bookss.append(new_book)
-        return render(request, "books.html", {"bookss": bookss})
+        books.append(new_book)
+        return render(request, "books.html", {"books": books})
 
     return render(request, "add_books.html")
 

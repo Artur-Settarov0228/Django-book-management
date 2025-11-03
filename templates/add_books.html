@@ -1,12 +1,21 @@
-<!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Kitob qo‘shish</title>
-</head>
-<body>
-    <h1>Kitob qo‘shish</h1>
-    <p>Bu yerda yangi kitob qo‘shish mumkin.</p>
+  </head>
+  <body>
+    <h1>Yangi kitob qo‘shish</h1>
 
-    <a href="{% url 'home' %}">Bosh sahifaga qaytish</a>
-</body>
+    <form method="post">
+      {% csrf_token %}
+      <p>Nomi: <input type="text" name="title" required></p>
+      <p>Muallif: <input type="text" name="author" required></p>
+      <p>Yili: <input type="number" name="year" required></p>
+      <p>Sahifalar soni: <input type="number" name="pages" required></p>
+      <p>Janr: <input type="text" name="genre" required></p>
+      <button type="submit">Qo‘shish</button>
+    </form>
+
+    <br>
+    <a href="{% url 'books:books' %}">⬅️ Kitoblar ro‘yxatiga qaytish</a>
+  </body>
 </html>

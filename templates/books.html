@@ -1,25 +1,31 @@
-<!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Kitoblar ro‘yxati</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Kitoblar ro‘yxati</h1>
-    <a href="{% url 'home' %}">← Bosh sahifaga qaytish</a>
-    <hr>
 
-    <ul>
-        {% for book in books %}
-            <li>
-                <strong>{{ book.title }}</strong><br>
-                Muallif: {{ book.author }}<br>
-                Yil: {{ book.year }}<br>
-                Sahifalar soni: {{ book.pages }}<br>
-                Janr: {{ book.genre }}
-                <hr>
-            </li>
-        {% endfor %}
-    </ul>
+    <a href="{% url 'books:home' %}">⬅️ Bosh sahifaga qaytish</a>
+    <br><br>
 
-</body>
+    <table border="1" cellpadding="5">
+      <tr>
+        <th>Nomi</th>
+        <th>Muallif</th>
+        <th>Yili</th>
+        <th>Sahifalar</th>
+        <th>Janr</th>
+      </tr>
+
+      {% for b in bookss %}
+      <tr>
+        <td>{{ b.title }}</td>
+        <td>{{ b.author }}</td>
+        <td>{{ b.year }}</td>
+        <td>{{ b.pages }}</td>
+        <td>{{ b.genre }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
 </html>

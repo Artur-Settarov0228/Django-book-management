@@ -1,17 +1,16 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <title>Book Management</title>
-</head>
-<body>
+  <head>
+    <title>Book Management - Home</title>
+  </head>
+  <body>
     <h1>Bosh sahifa</h1>
     <p>Bu yerda kitoblar bilan ishlash mumkin.</p>
 
     <ul>
-        <li><a href="{% url 'books' %}">Kitoblar ro‘yxati</a></li>
-        <li><a href="#">Kitob qo‘shish</a></li>
-        <li><a href="#">Kitob yangilash</a></li>
-        <li><a href="#">Kitob o‘chirish</a></li>
+      <li><a href="{% url 'books:books' %}">📚 Kitoblar ro‘yxati</a></li>
+      <li><a href="{% url 'books:add_books' %}">➕ Kitob qo‘shish</a></li>
+      <li><a href="{% url 'books:update_books' %}">✏️ Kitob yangilash</a></li>
+      <li><a href="{% url 'books:delete_books' %}">❌ Kitob o‘chirish</a></li>
     </ul>
-</body>
+  </body>
 </html>
