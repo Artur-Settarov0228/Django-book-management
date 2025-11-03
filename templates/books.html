@@ -102,7 +102,7 @@
             <th>Janr</th>
         </tr>
 
-        {% for b in books %}
+        {% for b in bookss %}
         <tr>
             <td>{{ b.title }}</td>
             <td>{{ b.author }}</td>
@@ -119,7 +119,7 @@
 </div>
 
 <footer>
-    © {{ now|date:"Y" }} Rayhon Books Library
+    © {{ now|date:"Y" }}
 </footer>
 
 </body>
