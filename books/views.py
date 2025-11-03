@@ -61,7 +61,26 @@ def books_view(request: HttpRequest) -> HttpResponse:
     return render(request= request, template_name="books.html", context= context)
 
 def add_books_view(request: HttpRequest) -> HttpResponse:
-    return render(request= request, template_name="add_books.html")
+    if request.method == "POST":
+        title = request.POST.get("title")
+        author = request.POST.get("author")
+        year = request.POST.get("year")
+        pages = request.POST.get("pages")
+        genre = request.POST.get("genre")
+
+        new_book = {
+            "title": title,
+            "author": author,
+            "year": int(year),
+            "pages": int(pages),
+            "genre": genre
+        }
+
+        bookss.append(new_book)
+        return render(request, "books.html", {"bookss": bookss})
+
+    return render(request, "add_books.html")
+
 
 def delete_books_view(request: HttpRequest) -> HttpResponse:
     return render(request= request, template_name="delete_books.html")
